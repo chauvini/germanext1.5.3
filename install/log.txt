@@ -1,0 +1,353 @@
+*DEBUG* 	2012/04/15 - 14:24:56: Constructed
+*DEBUG* 	2012/04/15 - 14:24:56: Started install
+*DEBUG* 	2012/04/15 - 14:24:56: Copy to backup finished
+*DEBUG* 	2012/04/15 - 14:24:56: Start set configs
+*DEBUG* 	2012/04/15 - 14:24:58: Finished set configs
+*DEBUG* 	2012/04/15 - 14:24:58: Start set CMS
+*DEBUG* 	2012/04/15 - 14:25:03: Finished set CMS
+*DEBUG* 	2012/04/15 - 14:25:03: Start db alter
+*DEBUG* 	2012/04/15 - 14:25:03:  - Processing table product
+*DEBUG* 	2012/04/15 - 14:25:03:  -- Processing field reduction_reason
+*DEBUG* 	2012/04/15 - 14:25:03:  - Table processed
+*DEBUG* 	2012/04/15 - 14:25:03:  -- Processing field unit_net
+*DEBUG* 	2012/04/15 - 14:25:05:  - Table processed
+*DEBUG* 	2012/04/15 - 14:25:05:  - Processing table product_lang
+*DEBUG* 	2012/04/15 - 14:25:05:  -- Processing field reduction_reason
+*DEBUG* 	2012/04/15 - 14:25:09:  - Table processed
+*DEBUG* 	2012/04/15 - 14:25:09:  - Processing table product_attribute
+*DEBUG* 	2012/04/15 - 14:25:09:  -- Processing field unit_net_impact
+*DEBUG* 	2012/04/15 - 14:25:12:  - Table processed
+*DEBUG* 	2012/04/15 - 14:25:12:  - Processing table attribute_impact
+*DEBUG* 	2012/04/15 - 14:25:12:  -- Processing field net
+*DEBUG* 	2012/04/15 - 14:25:13:  - Table processed
+*DEBUG* 	2012/04/15 - 14:25:13:  - Processing table cart
+*DEBUG* 	2012/04/15 - 14:25:13:  -- Processing field id_payment
+*DEBUG* 	2012/04/15 - 14:25:15:  - Table processed
+*DEBUG* 	2012/04/15 - 14:25:15:  - Processing table orders
+*DEBUG* 	2012/04/15 - 14:25:15:  -- Processing field total_payment
+*DEBUG* 	2012/04/15 - 14:25:17:  - Table processed
+*DEBUG* 	2012/04/15 - 14:25:17:  -- Processing field payment_message
+*DEBUG* 	2012/04/15 - 14:25:19:  - Table processed
+*DEBUG* 	2012/04/15 - 14:25:19:  - Processing table customer
+*DEBUG* 	2012/04/15 - 14:25:19:  -- Processing field statistic
+*DEBUG* 	2012/04/15 - 14:25:19:  - Table processed
+*DEBUG* 	2012/04/15 - 14:25:19:  -- Processing field email
+*DEBUG* 	2012/04/15 - 14:25:19:  - Table processed
+*DEBUG* 	2012/04/15 - 14:25:19: Finished processing tables
+*DEBUG* 	2012/04/15 - 14:25:19: Copy native finished
+*DEBUG* 	2012/04/15 - 14:25:19: Start countries update
+*DEBUG* 	2012/04/15 - 14:25:59: Finished countries update
+*DEBUG* 	2012/04/15 - 14:25:59: Start zone update
+*DEBUG* 	2012/04/15 - 14:26:00: Finished zone update
+*DEBUG* 	2012/04/15 - 14:26:00: Start order state update
+*DEBUG* 	2012/04/15 - 14:26:00: Finish order state update
+*DEBUG* 	2012/04/15 - 14:26:01: Constructed
+*DEBUG* 	2012/04/15 - 14:26:02: Constructed
+*DEBUG* 	2012/04/15 - 14:26:03: Constructed
+*DEBUG* 	2012/04/15 - 14:31:48: Constructed
+*DEBUG* 	2012/04/15 - 14:31:52: Started dir copy
+*DEBUG* 	2012/04/15 - 14:31:52: From /home/eihwaz/webdev/ps15b4/modules/germanext/backup
+*DEBUG* 	2012/04/15 - 14:31:52: To /home/eihwaz/webdev/ps15b4
+*DEBUG* 	2012/04/15 - 14:31:52: Started dir copy
+*DEBUG* 	2012/04/15 - 14:31:52: From /home/eihwaz/webdev/ps15b4/modules/germanext/backup/classes
+*DEBUG* 	2012/04/15 - 14:31:52: To /home/eihwaz/webdev/ps15b4/classes
+*DEBUG* 	2012/04/15 - 14:31:52: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:31:52: -- /home/eihwaz/webdev/ps15b4/modules/germanext/backup/classes/PaymentCost.php
+*DEBUG* 	2012/04/15 - 14:31:52: -> /home/eihwaz/webdev/ps15b4/classes/PaymentCost.php
+*DEBUG* 	2012/04/15 - 14:31:52: Started dir copy
+*DEBUG* 	2012/04/15 - 14:31:52: From /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override
+*DEBUG* 	2012/04/15 - 14:31:52: To /home/eihwaz/webdev/ps15b4/override
+*DEBUG* 	2012/04/15 - 14:31:52: Started dir copy
+*DEBUG* 	2012/04/15 - 14:31:52: From /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes
+*DEBUG* 	2012/04/15 - 14:31:52: To /home/eihwaz/webdev/ps15b4/override/classes
+*DEBUG* 	2012/04/15 - 14:31:52: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:31:52: -- /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/Category.php
+*DEBUG* 	2012/04/15 - 14:31:52: -> /home/eihwaz/webdev/ps15b4/override/classes/Category.php
+*DEBUG* 	2012/04/15 - 14:31:52: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:31:52: -- /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/Combination.php
+*DEBUG* 	2012/04/15 - 14:31:52: -> /home/eihwaz/webdev/ps15b4/override/classes/Combination.php
+*DEBUG* 	2012/04/15 - 14:31:52: Started dir copy
+*DEBUG* 	2012/04/15 - 14:31:52: From /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/controller
+*DEBUG* 	2012/04/15 - 14:31:52: To /home/eihwaz/webdev/ps15b4/override/classes/controller
+*DEBUG* 	2012/04/15 - 14:31:52: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:31:52: -- /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/controller/AdminController.php
+*DEBUG* 	2012/04/15 - 14:31:52: -> /home/eihwaz/webdev/ps15b4/override/classes/controller/AdminController.php
+*DEBUG* 	2012/04/15 - 14:31:52: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:31:52: -- /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/controller/Controller.php
+*DEBUG* 	2012/04/15 - 14:31:52: -> /home/eihwaz/webdev/ps15b4/override/classes/controller/Controller.php
+*DEBUG* 	2012/04/15 - 14:31:52: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:31:52: -- /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/Customer.php
+*DEBUG* 	2012/04/15 - 14:31:52: -> /home/eihwaz/webdev/ps15b4/override/classes/Customer.php
+*DEBUG* 	2012/04/15 - 14:31:52: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:31:52: -- /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/Product.php
+*DEBUG* 	2012/04/15 - 14:31:52: -> /home/eihwaz/webdev/ps15b4/override/classes/Product.php
+*DEBUG* 	2012/04/15 - 14:31:52: Started dir copy
+*DEBUG* 	2012/04/15 - 14:31:52: From /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/controllers
+*DEBUG* 	2012/04/15 - 14:31:52: To /home/eihwaz/webdev/ps15b4/override/controllers
+*DEBUG* 	2012/04/15 - 14:31:52: Started dir copy
+*DEBUG* 	2012/04/15 - 14:31:52: From /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/controllers/admin
+*DEBUG* 	2012/04/15 - 14:31:52: To /home/eihwaz/webdev/ps15b4/override/controllers/admin
+*DEBUG* 	2012/04/15 - 14:31:52: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:31:52: -- /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/controllers/admin/AdminPreferencesController.php
+*DEBUG* 	2012/04/15 - 14:31:52: -> /home/eihwaz/webdev/ps15b4/override/controllers/admin/AdminPreferencesController.php
+*DEBUG* 	2012/04/15 - 14:31:52: Started dir copy
+*DEBUG* 	2012/04/15 - 14:31:52: From /home/eihwaz/webdev/ps15b4/modules/germanext/backup/tools
+*DEBUG* 	2012/04/15 - 14:31:52: To /home/eihwaz/webdev/ps15b4/tools
+*DEBUG* 	2012/04/15 - 14:31:52: Started dir copy
+*DEBUG* 	2012/04/15 - 14:31:52: From /home/eihwaz/webdev/ps15b4/modules/germanext/backup/tools/smarty
+*DEBUG* 	2012/04/15 - 14:31:52: To /home/eihwaz/webdev/ps15b4/tools/smarty
+*DEBUG* 	2012/04/15 - 14:31:52: Started dir copy
+*DEBUG* 	2012/04/15 - 14:31:52: From /home/eihwaz/webdev/ps15b4/modules/germanext/backup/tools/smarty/sysplugins
+*DEBUG* 	2012/04/15 - 14:31:52: To /home/eihwaz/webdev/ps15b4/tools/smarty/sysplugins
+*DEBUG* 	2012/04/15 - 14:31:52: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:31:52: -- /home/eihwaz/webdev/ps15b4/modules/germanext/backup/tools/smarty/sysplugins/smarty_internal_compile_include.php
+*DEBUG* 	2012/04/15 - 14:31:52: -> /home/eihwaz/webdev/ps15b4/tools/smarty/sysplugins/smarty_internal_compile_include.php
+*DEBUG* 	2012/04/15 - 14:31:52: Start set configs
+*DEBUG* 	2012/04/15 - 14:31:54: Finished set configs
+*DEBUG* 	2012/04/15 - 14:31:54: Constructed
+*DEBUG* 	2012/04/15 - 14:31:56: Constructed
+*DEBUG* 	2012/04/15 - 14:33:33: Constructed
+*DEBUG* 	2012/04/15 - 14:33:33: Started install
+*DEBUG* 	2012/04/15 - 14:33:33: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:33: From /home/eihwaz/webdev/ps15b4
+*DEBUG* 	2012/04/15 - 14:33:33: To /home/eihwaz/webdev/ps15b4/modules/germanext/backup
+*DEBUG* 	2012/04/15 - 14:33:33: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:33: From /home/eihwaz/webdev/ps15b4/classes
+*DEBUG* 	2012/04/15 - 14:33:33: To /home/eihwaz/webdev/ps15b4/modules/germanext/backup/classes
+*DEBUG* 	2012/04/15 - 14:33:33: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:33: -- /home/eihwaz/webdev/ps15b4/classes/PaymentCost.php
+*DEBUG* 	2012/04/15 - 14:33:33: -> /home/eihwaz/webdev/ps15b4/modules/germanext/backup/classes/PaymentCost.php
+*DEBUG* 	2012/04/15 - 14:33:33: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:33: From /home/eihwaz/webdev/ps15b4/override
+*DEBUG* 	2012/04/15 - 14:33:33: To /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override
+*DEBUG* 	2012/04/15 - 14:33:33: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:33: From /home/eihwaz/webdev/ps15b4/override/classes
+*DEBUG* 	2012/04/15 - 14:33:33: To /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes
+*DEBUG* 	2012/04/15 - 14:33:33: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:33: -- /home/eihwaz/webdev/ps15b4/override/classes/Category.php
+*DEBUG* 	2012/04/15 - 14:33:33: -> /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/Category.php
+*DEBUG* 	2012/04/15 - 14:33:33: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:33: -- /home/eihwaz/webdev/ps15b4/override/classes/Combination.php
+*DEBUG* 	2012/04/15 - 14:33:33: -> /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/Combination.php
+*DEBUG* 	2012/04/15 - 14:33:33: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:33: From /home/eihwaz/webdev/ps15b4/override/classes/controller
+*DEBUG* 	2012/04/15 - 14:33:33: To /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/controller
+*DEBUG* 	2012/04/15 - 14:33:33: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:33: -- /home/eihwaz/webdev/ps15b4/override/classes/controller/AdminController.php
+*DEBUG* 	2012/04/15 - 14:33:33: -> /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/controller/AdminController.php
+*DEBUG* 	2012/04/15 - 14:33:33: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:33: -- /home/eihwaz/webdev/ps15b4/override/classes/controller/Controller.php
+*DEBUG* 	2012/04/15 - 14:33:33: -> /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/controller/Controller.php
+*DEBUG* 	2012/04/15 - 14:33:33: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:33: -- /home/eihwaz/webdev/ps15b4/override/classes/Customer.php
+*DEBUG* 	2012/04/15 - 14:33:33: -> /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/Customer.php
+*DEBUG* 	2012/04/15 - 14:33:33: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:33: -- /home/eihwaz/webdev/ps15b4/override/classes/Product.php
+*DEBUG* 	2012/04/15 - 14:33:33: -> /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/classes/Product.php
+*DEBUG* 	2012/04/15 - 14:33:33: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:33: From /home/eihwaz/webdev/ps15b4/override/controllers
+*DEBUG* 	2012/04/15 - 14:33:33: To /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/controllers
+*DEBUG* 	2012/04/15 - 14:33:33: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:33: From /home/eihwaz/webdev/ps15b4/override/controllers/admin
+*DEBUG* 	2012/04/15 - 14:33:33: To /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/controllers/admin
+*DEBUG* 	2012/04/15 - 14:33:33: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:33: -- /home/eihwaz/webdev/ps15b4/override/controllers/admin/AdminPreferencesController.php
+*DEBUG* 	2012/04/15 - 14:33:33: -> /home/eihwaz/webdev/ps15b4/modules/germanext/backup/override/controllers/admin/AdminPreferencesController.php
+*DEBUG* 	2012/04/15 - 14:33:33: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:33: From /home/eihwaz/webdev/ps15b4/tools
+*DEBUG* 	2012/04/15 - 14:33:33: To /home/eihwaz/webdev/ps15b4/modules/germanext/backup/tools
+*DEBUG* 	2012/04/15 - 14:33:33: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:33: From /home/eihwaz/webdev/ps15b4/tools/smarty
+*DEBUG* 	2012/04/15 - 14:33:33: To /home/eihwaz/webdev/ps15b4/modules/germanext/backup/tools/smarty
+*DEBUG* 	2012/04/15 - 14:33:33: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:33: From /home/eihwaz/webdev/ps15b4/tools/smarty/sysplugins
+*DEBUG* 	2012/04/15 - 14:33:33: To /home/eihwaz/webdev/ps15b4/modules/germanext/backup/tools/smarty/sysplugins
+*DEBUG* 	2012/04/15 - 14:33:33: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:33: -- /home/eihwaz/webdev/ps15b4/tools/smarty/sysplugins/smarty_internal_compile_include.php
+*DEBUG* 	2012/04/15 - 14:33:33: -> /home/eihwaz/webdev/ps15b4/modules/germanext/backup/tools/smarty/sysplugins/smarty_internal_compile_include.php
+*DEBUG* 	2012/04/15 - 14:33:33: Copy to backup finished
+*DEBUG* 	2012/04/15 - 14:33:33: Start set configs
+*DEBUG* 	2012/04/15 - 14:33:35: Finished set configs
+*DEBUG* 	2012/04/15 - 14:33:35: Start set CMS
+*DEBUG* 	2012/04/15 - 14:33:39: Finished set CMS
+*DEBUG* 	2012/04/15 - 14:33:39: Start db alter
+*DEBUG* 	2012/04/15 - 14:33:39:  - Processing table product
+*DEBUG* 	2012/04/15 - 14:33:39:  -- Processing field reduction_reason
+*DEBUG* 	2012/04/15 - 14:33:39:  - Table processed
+*DEBUG* 	2012/04/15 - 14:33:39:  -- Processing field unit_net
+*DEBUG* 	2012/04/15 - 14:33:41:  - Table processed
+*DEBUG* 	2012/04/15 - 14:33:41:  - Processing table product_lang
+*DEBUG* 	2012/04/15 - 14:33:41:  -- Processing field reduction_reason
+*DEBUG* 	2012/04/15 - 14:33:42:  - Table processed
+*DEBUG* 	2012/04/15 - 14:33:42:  - Processing table product_attribute
+*DEBUG* 	2012/04/15 - 14:33:42:  -- Processing field unit_net_impact
+*DEBUG* 	2012/04/15 - 14:33:50:  - Table processed
+*DEBUG* 	2012/04/15 - 14:33:50:  - Processing table attribute_impact
+*DEBUG* 	2012/04/15 - 14:33:50:  -- Processing field net
+*DEBUG* 	2012/04/15 - 14:33:54:  - Table processed
+*DEBUG* 	2012/04/15 - 14:33:54:  - Processing table cart
+*DEBUG* 	2012/04/15 - 14:33:54:  -- Processing field id_payment
+*DEBUG* 	2012/04/15 - 14:33:55:  - Table processed
+*DEBUG* 	2012/04/15 - 14:33:55:  - Processing table orders
+*DEBUG* 	2012/04/15 - 14:33:55:  -- Processing field total_payment
+*DEBUG* 	2012/04/15 - 14:33:56:  - Table processed
+*DEBUG* 	2012/04/15 - 14:33:56:  -- Processing field payment_message
+*DEBUG* 	2012/04/15 - 14:33:58:  - Table processed
+*DEBUG* 	2012/04/15 - 14:33:58:  - Processing table customer
+*DEBUG* 	2012/04/15 - 14:33:58:  -- Processing field statistic
+*DEBUG* 	2012/04/15 - 14:33:58:  - Table processed
+*DEBUG* 	2012/04/15 - 14:33:58:  -- Processing field email
+*DEBUG* 	2012/04/15 - 14:33:58:  - Table processed
+*DEBUG* 	2012/04/15 - 14:33:58: Finished processing tables
+*DEBUG* 	2012/04/15 - 14:33:58: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:58: From /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy/
+*DEBUG* 	2012/04/15 - 14:33:58: To /home/eihwaz/webdev/ps15b4
+*DEBUG* 	2012/04/15 - 14:33:58: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:58: From /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//classes
+*DEBUG* 	2012/04/15 - 14:33:58: To /home/eihwaz/webdev/ps15b4/classes
+*DEBUG* 	2012/04/15 - 14:33:58: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:58: -- /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//classes/PaymentCost.php
+*DEBUG* 	2012/04/15 - 14:33:58: -> /home/eihwaz/webdev/ps15b4/classes/PaymentCost.php
+*DEBUG* 	2012/04/15 - 14:33:58: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:58: From /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//override
+*DEBUG* 	2012/04/15 - 14:33:58: To /home/eihwaz/webdev/ps15b4/override
+*DEBUG* 	2012/04/15 - 14:33:58: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:58: From /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//override/classes
+*DEBUG* 	2012/04/15 - 14:33:58: To /home/eihwaz/webdev/ps15b4/override/classes
+*DEBUG* 	2012/04/15 - 14:33:58: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:58: -- /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//override/classes/Category.php
+*DEBUG* 	2012/04/15 - 14:33:58: -> /home/eihwaz/webdev/ps15b4/override/classes/Category.php
+*DEBUG* 	2012/04/15 - 14:33:58: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:58: -- /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//override/classes/Combination.php
+*DEBUG* 	2012/04/15 - 14:33:58: -> /home/eihwaz/webdev/ps15b4/override/classes/Combination.php
+*DEBUG* 	2012/04/15 - 14:33:58: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:58: From /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//override/classes/controller
+*DEBUG* 	2012/04/15 - 14:33:58: To /home/eihwaz/webdev/ps15b4/override/classes/controller
+*DEBUG* 	2012/04/15 - 14:33:58: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:58: -- /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//override/classes/controller/AdminController.php
+*DEBUG* 	2012/04/15 - 14:33:58: -> /home/eihwaz/webdev/ps15b4/override/classes/controller/AdminController.php
+*DEBUG* 	2012/04/15 - 14:33:58: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:58: -- /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//override/classes/controller/Controller.php
+*DEBUG* 	2012/04/15 - 14:33:58: -> /home/eihwaz/webdev/ps15b4/override/classes/controller/Controller.php
+*DEBUG* 	2012/04/15 - 14:33:58: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:58: -- /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//override/classes/Customer.php
+*DEBUG* 	2012/04/15 - 14:33:58: -> /home/eihwaz/webdev/ps15b4/override/classes/Customer.php
+*DEBUG* 	2012/04/15 - 14:33:58: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:58: -- /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//override/classes/Product.php
+*DEBUG* 	2012/04/15 - 14:33:58: -> /home/eihwaz/webdev/ps15b4/override/classes/Product.php
+*DEBUG* 	2012/04/15 - 14:33:58: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:58: From /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//override/controllers
+*DEBUG* 	2012/04/15 - 14:33:58: To /home/eihwaz/webdev/ps15b4/override/controllers
+*DEBUG* 	2012/04/15 - 14:33:58: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:58: From /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//override/controllers/admin
+*DEBUG* 	2012/04/15 - 14:33:58: To /home/eihwaz/webdev/ps15b4/override/controllers/admin
+*DEBUG* 	2012/04/15 - 14:33:58: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:58: -- /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//override/controllers/admin/AdminPreferencesController.php
+*DEBUG* 	2012/04/15 - 14:33:58: -> /home/eihwaz/webdev/ps15b4/override/controllers/admin/AdminPreferencesController.php
+*DEBUG* 	2012/04/15 - 14:33:58: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:58: From /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//tools
+*DEBUG* 	2012/04/15 - 14:33:58: To /home/eihwaz/webdev/ps15b4/tools
+*DEBUG* 	2012/04/15 - 14:33:58: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:58: From /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//tools/smarty
+*DEBUG* 	2012/04/15 - 14:33:58: To /home/eihwaz/webdev/ps15b4/tools/smarty
+*DEBUG* 	2012/04/15 - 14:33:58: Started dir copy
+*DEBUG* 	2012/04/15 - 14:33:58: From /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//tools/smarty/sysplugins
+*DEBUG* 	2012/04/15 - 14:33:58: To /home/eihwaz/webdev/ps15b4/tools/smarty/sysplugins
+*DEBUG* 	2012/04/15 - 14:33:58: -----------------------------------------------------------
+*DEBUG* 	2012/04/15 - 14:33:58: -- /home/eihwaz/webdev/ps15b4/modules/germanext/install/copy//tools/smarty/sysplugins/smarty_internal_compile_include.php
+*DEBUG* 	2012/04/15 - 14:33:58: -> /home/eihwaz/webdev/ps15b4/tools/smarty/sysplugins/smarty_internal_compile_include.php
+*DEBUG* 	2012/04/15 - 14:33:58: Copy native finished
+*DEBUG* 	2012/04/15 - 14:33:58: Start countries update
+*DEBUG* 	2012/04/15 - 14:34:54: Finished countries update
+*DEBUG* 	2012/04/15 - 14:34:54: Start zone update
+*DEBUG* 	2012/04/15 - 14:34:55: Finished zone update
+*DEBUG* 	2012/04/15 - 14:34:55: Start order state update
+*DEBUG* 	2012/04/15 - 14:34:56: Finish order state update
+*DEBUG* 	2012/04/15 - 14:34:57: Constructed
+*DEBUG* 	2012/04/15 - 14:34:58: Constructed
+*DEBUG* 	2012/04/15 - 14:34:59: Constructed
+*DEBUG* 	2012/04/15 - 14:35:27: Constructed
+*DEBUG* 	2012/04/15 - 14:38:59: Constructed
+*DEBUG* 	2012/04/15 - 14:39:06: Constructed
+*DEBUG* 	2012/04/15 - 14:39:16: Constructed
+*DEBUG* 	2012/04/15 - 14:39:49: Constructed
+*DEBUG* 	2012/04/15 - 14:39:54: Constructed
+*DEBUG* 	2012/04/15 - 14:41:27: Constructed
+*DEBUG* 	2012/04/15 - 14:41:46: Constructed
+*DEBUG* 	2012/04/15 - 14:42:31: Constructed
+*DEBUG* 	2012/04/15 - 14:42:40: Constructed
+*DEBUG* 	2012/04/15 - 14:42:52: Constructed
+*DEBUG* 	2012/04/15 - 14:43:09: Constructed
+*DEBUG* 	2012/04/15 - 14:43:31: Constructed
+*DEBUG* 	2012/04/15 - 14:43:34: Constructed
+*DEBUG* 	2012/04/15 - 14:43:38: Constructed
+*DEBUG* 	2012/04/15 - 14:44:00: Constructed
+*DEBUG* 	2012/04/15 - 14:46:17: Constructed
+*DEBUG* 	2012/04/15 - 14:46:22: Constructed
+*DEBUG* 	2012/04/15 - 16:18:18: Constructed
+*DEBUG* 	2012/04/15 - 16:19:21: Constructed
+*DEBUG* 	2012/04/15 - 16:19:34: Constructed
+*DEBUG* 	2012/04/15 - 16:22:55: Constructed
+*DEBUG* 	2012/04/15 - 16:22:55: Constructed
+*DEBUG* 	2012/04/15 - 16:23:00: Constructed
+*DEBUG* 	2012/04/15 - 16:31:04: Constructed
+*DEBUG* 	2012/04/15 - 16:31:04: Constructed
+*DEBUG* 	2012/04/15 - 16:31:09: Constructed
+*DEBUG* 	2012/04/15 - 16:31:32: Constructed
+*DEBUG* 	2012/04/15 - 16:31:52: Constructed
+*DEBUG* 	2012/04/15 - 16:34:44: Constructed
+*DEBUG* 	2012/04/15 - 16:36:40: Constructed
+*DEBUG* 	2012/04/15 - 16:36:45: Constructed
+*DEBUG* 	2012/04/15 - 16:37:34: Constructed
+*DEBUG* 	2012/04/15 - 16:42:47: Constructed
+*DEBUG* 	2012/04/15 - 16:44:46: Constructed
+*DEBUG* 	2012/04/15 - 16:45:56: Constructed
+*DEBUG* 	2012/04/15 - 16:47:02: Constructed
+*DEBUG* 	2012/04/15 - 16:48:03: Constructed
+*DEBUG* 	2012/04/15 - 16:48:04: Constructed
+*DEBUG* 	2012/04/15 - 16:48:25: Constructed
+*DEBUG* 	2012/04/15 - 16:48:38: Constructed
+*DEBUG* 	2012/04/15 - 16:48:43: Constructed
+*DEBUG* 	2012/04/15 - 16:52:50: Constructed
+*DEBUG* 	2012/04/15 - 17:01:44: Constructed
+*DEBUG* 	2012/04/15 - 17:01:49: Constructed
+*DEBUG* 	2012/04/15 - 17:20:03: Constructed
+*DEBUG* 	2012/04/15 - 17:23:55: Constructed
+*DEBUG* 	2012/04/15 - 17:24:03: Constructed
+*DEBUG* 	2012/04/15 - 17:24:15: Constructed
+*DEBUG* 	2012/04/15 - 17:24:20: Constructed
+*DEBUG* 	2012/04/15 - 17:24:31: Constructed
+*DEBUG* 	2012/04/15 - 17:24:39: Constructed
+*DEBUG* 	2012/04/15 - 17:24:46: Constructed
+*DEBUG* 	2012/04/15 - 17:24:55: Constructed
+*DEBUG* 	2012/04/15 - 17:25:02: Constructed
+*DEBUG* 	2012/04/15 - 17:27:01: Constructed
+*DEBUG* 	2012/04/15 - 17:29:53: Constructed
+*DEBUG* 	2012/04/15 - 17:30:02: Constructed
+*DEBUG* 	2012/04/15 - 17:33:05: Constructed
+*DEBUG* 	2012/04/15 - 17:33:15: Constructed
+*DEBUG* 	2012/04/15 - 17:33:39: Constructed
+*DEBUG* 	2012/04/15 - 17:34:47: Constructed
+*DEBUG* 	2012/04/15 - 17:35:14: Constructed
+*DEBUG* 	2012/04/15 - 17:35:40: Constructed
+*DEBUG* 	2012/04/15 - 17:35:51: Constructed
+*DEBUG* 	2012/04/15 - 17:38:52: Constructed
+*DEBUG* 	2012/04/15 - 17:38:56: Constructed
+*DEBUG* 	2012/04/15 - 17:39:05: Constructed
+*DEBUG* 	2012/04/15 - 17:39:12: Constructed
+*DEBUG* 	2012/04/15 - 17:40:47: Constructed
+*DEBUG* 	2012/04/15 - 17:41:27: Constructed
+*DEBUG* 	2012/04/15 - 17:42:16: Constructed
+*DEBUG* 	2012/04/15 - 17:42:24: Constructed
+*DEBUG* 	2012/04/15 - 17:42:35: Constructed
+*DEBUG* 	2012/04/15 - 17:42:57: Constructed
+*DEBUG* 	2012/04/15 - 17:43:05: Constructed
+*DEBUG* 	2012/04/15 - 17:43:25: Constructed
+*DEBUG* 	2012/04/15 - 17:43:35: Constructed
+*DEBUG* 	2012/04/15 - 17:44:13: Constructed
+*DEBUG* 	2012/04/15 - 17:44:22: Constructed
+*DEBUG* 	2012/04/15 - 17:44:55: Constructed
+*DEBUG* 	2012/04/15 - 17:45:05: Constructed
+*DEBUG* 	2012/04/15 - 21:11:32: Constructed
+*DEBUG* 	2012/04/17 - 12:28:44: Constructed
+*DEBUG* 	2012/04/17 - 12:29:00: Constructed
