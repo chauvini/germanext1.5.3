@@ -5,14 +5,13 @@ class OrderOpcControllerListener extends Germanext
 	
 	public function execute($context)
 	{
-		$id_lang = (int)$context->cookie->id_lang;
-
+		$id_lang             = (int)$context->cookie->id_lang;
 		$CMS_CONDITIONS_LINK = self::getCmsLink((int)Configuration::get('PS_CMS_ID_CONDITIONS'), $id_lang);
 		$CMS_REVOCATION_LINK = self::getCmsLink((int)Configuration::get('PS_CMS_ID_REVOCATION'), $id_lang);
 		$CMS_PRIVACY_LINK    = self::getCmsLink((int)Configuration::get('PS_CMS_ID_PRIVACY'), $id_lang);
 		$CMS_SHIPPING_LINK   = self::getCmsLink((int)Configuration::get('PS_CMS_ID_DELIVERY'), $id_lang);
-		$regText = Configuration::get('GN_REGISTRATION_TEXT', $id_lang);
-		$regText = ($regText && ! Tools::isEmpty(trim($regText))) ? trim($regText) : false;
+		$regText             = Configuration::get('GN_REGISTRATION_TEXT', $id_lang);
+		$regText             = ($regText && ! Tools::isEmpty(trim($regText))) ? trim($regText) : false;
 
 		$context->smarty->assign(
 			array(
