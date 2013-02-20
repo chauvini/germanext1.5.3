@@ -11,8 +11,7 @@
  * Support: http://www.silbersaiten.de/
  *
  */
-if ( ! defined('_PS_VERSION_'))
-{
+if ( ! defined('_PS_VERSION_')) {
 	exit;
 }
 
@@ -20,15 +19,15 @@ require_once(dirname(__FILE__) . '/defines.php');
     
 class Germanext extends Module
 {
-    private static $_tblCache = array();
+	private static $_tblCache = array();
 	private static $_fieldCache = array();
 	private static $_languages;
 	
 	private $_html = '';
 	private $_postErrors = array();
 
-    private static $_templateOverrides = array(
-        'ProductController',
+	private static $_templateOverrides = array(
+		'ProductController',
 		'AdminCustomersController',
 		'AdminProductsController',
 		'AdminOrdersController',
@@ -39,25 +38,25 @@ class Germanext extends Module
 		'HistoryController',
 		'OrderDetailController',
 		'CompareController'
-    );
+	);
     
-    private static $_themeTplOverrides = array(
-        'product-list.tpl',
+	private static $_themeTplOverrides = array(
+		'product-list.tpl',
 		'order-steps.tpl',
 		'shopping-cart-product-line.tpl'
-    );
+	);
     
-    public function __construct()
-    {
-        $this->name    = 'germanext';
-        $this->tab     = 'administration';
-        $this->version = '1.5';
-        $this->author  = 'Silbersaiten';
+	public function __construct()
+	{
+		$this->name    = 'germanext';
+		$this->tab     = 'administration';
+		$this->version = '1.5';
+		$this->author  = 'Silbersaiten';
         
-        parent::__construct();
+		parent::__construct();
         
-        $this->displayName = $this->l('Germanext');
-    }
+		$this->displayName = $this->l('Germanext');
+	}
 	
 	
 	/**************************************************************************
@@ -66,211 +65,190 @@ class Germanext extends Module
 	 *                                                                        *
 	 * Search points: install, create, setup, uninstall, destroy, purge       *
 	 **************************************************************************/
-    public function install()
-    {
-        $backup = $this->copyDir(_PS_ROOT_DIR_, GN_BACKUP_PATH, GN_INSTALL_COPY_PATH);
+	public function install()
+	{
+		$backup = $this->copyDir(_PS_ROOT_DIR_, GN_BACKUP_PATH, GN_INSTALL_COPY_PATH);
 
-        if ( ! $backup
+		if ( ! $backup
 			|| ! $this->setConfigs(true)
 			|| ! $this->setCMS()
 			|| ! $this->makeDbChanges()
 			|| ! $this->installTables())
-        {
-            $this->uninstall();
-            
-            return false;
-        }
+		{
+			$this->uninstall();
 
-        $filesCopied = $this->copyDir(GN_INSTALL_COPY_PATH, _PS_ROOT_DIR_);
+			return false;
+		}
+
+		$filesCopied = $this->copyDir(GN_INSTALL_COPY_PATH, _PS_ROOT_DIR_);
         
-        if ( ! $filesCopied)
-        {
-            $this->uninstall();
+		if ( ! $filesCopied) {
+			$this->uninstall();
             
-            return false;
-        }
+			return false;
+		}
 
-        $this->updateCountries();
-        $this->setCountryZone();
-        $this->updateOrderStates();
+		$this->updateCountries();
+		$this->setCountryZone();
+		$this->updateOrderStates();
 		$this->registerPaymentModules();
 
-        if ( ! (
-				parent::install()
-				&& $this->registerHook('header')
-				&& $this->registerHook('displayBackOfficeHeader')
-				&& $this->registerHook('actionProductAttributeUpdate')
-			)
-		)
-		{
+		if ( ! (
+			parent::install()
+			&& $this->registerHook('header')
+			&& $this->registerHook('displayBackOfficeHeader')
+			&& $this->registerHook('actionProductAttributeUpdate')
+		)) {
 			$this->uninstall();
 			
 			return false;
 		}
 		
 		return true;
-    }
+	}
     
-    public function uninstall()
-    {
-        if (parent::uninstall())
-        {
-            $this->copyDir(GN_BACKUP_PATH, _PS_ROOT_DIR_);
+	public function uninstall()
+	{
+		if (parent::uninstall()) {
+			$this->copyDir(GN_BACKUP_PATH, _PS_ROOT_DIR_);
             
-            $this->deleteDir($src, true);
+			$this->deleteDir($src, true);
             
-            $this->uninstallTables();
-            $this->setConfigs(false);
+			$this->uninstallTables();
+			$this->setConfigs(false);
 			
 			return true;
-        }
+		}
 		
 		return false;
-    }
+	}
     
     
-    /*
-     * Assigns Germanext values to some Prestashop's config variables. Also
-     * creates a few new variables.
-     *
-     * @access private
-     *
-     * @param bool $install - Set to "false" when uninstalling to revert
-     *                        Germanext changes.
-     *
-     * @return bool
-     */
-    private function setConfigs($install = true)
-    {
+	/*
+	* Assigns Germanext values to some Prestashop's config variables. Also
+	* creates a few new variables.
+	*
+	* @access private
+	*
+	* @param bool $install - Set to "false" when uninstalling to revert
+	*                        Germanext changes.
+	*
+	* @return bool
+	*/
+	private function setConfigs($install = true)
+	{
 		$languages = Language::getLanguages();
-        // This is where the array with configuration variables is stored to
-        // keep this file clean.
-        require_once(GN_INSTALL_PATH . 'configs.inc.php');
+		// This is where the array with configuration variables is stored to
+		// keep this file clean.
+		require_once(GN_INSTALL_PATH . 'configs.inc.php');
         
-        if (sizeof($_gn_configs))
-        {
-            foreach ($_gn_configs as $config_name => $data)
-            {
-                if ( ! Validate::isConfigName($config_name))
-                {
-                    $this->_errors[] = $this->l('Invalid Configuration variable name:') . ' "' . $config_name . '"';
-                }
-                else
-                {
-                    $key = $install ? 'install' : 'uninstall';
+		if (sizeof($_gn_configs)) {
+			foreach ($_gn_configs as $config_name => $data) {
+				if ( ! Validate::isConfigName($config_name)) {
+					$this->_errors[] = $this->l('Invalid Configuration variable name:') . ' "' . $config_name . '"';
+				}
+				else {
+					$key = $install ? 'install' : 'uninstall';
                     
-                    if (array_key_exists($key, $data))
-                    {
+					if (array_key_exists($key, $data)) {
 						$value = $data[$key];
 						
-						if (array_key_exists('lang', $data) && $data['lang'] == true)
-						{
+						if (array_key_exists('lang', $data) && $data['lang'] == true) {
 							$value = array();
 							
-							foreach ($languages as $language)
-							{
+							foreach ($languages as $language) {
 								$value[$language['id_lang']] = $data[$key];
 							}
 						}
 						
-						if ($install || ! array_key_exists('drop', $data))
-						{
+						if ($install || ! array_key_exists('drop', $data)) {
 							Configuration::updateValue($config_name, $value);
 						}
-                        else
-						{
+						else {
 							Configuration::deleteByName($config_name);
 						}
-                    }
-                }
-            }
-        }
+					}
+				}
+			}
+		}
         
-        return ! sizeof($this->_errors);
-    }
+		return ! sizeof($this->_errors);
+	}
     
     
-    /*
-     * Creates Germanext CMS pages
-     *
-     * @access private
-     *
-     * @return void
-     */
-    private static function setCMS()
-    {
-        // This is where the array with cms data is stored to keep this file
-        // clean.
-        require_once(GN_INSTALL_PATH . 'cms.inc.php');
+	/*
+	* Creates Germanext CMS pages
+	*
+	* @access private
+	*
+	* @return void
+	*/
+	private static function setCMS()
+	{
+		// This is where the array with cms data is stored to keep this file
+		// clean.
+		require_once(GN_INSTALL_PATH . 'cms.inc.php');
 
-        if (sizeof($_gn_cms))
-        {
-            $languages = Language::getLanguages();
-            $dir       = GN_INSTALL_PATH . 'cms/'; //format: cms_ID.html
+		if (sizeof($_gn_cms)) {
+			$languages = Language::getLanguages();
+			$dir       = GN_INSTALL_PATH . 'cms/'; //format: cms_ID.html
             
-            foreach ($_gn_cms as $type => $trans)
-            {
-                $file = $dir . 'cms_' . $type . '.html';
+			foreach ($_gn_cms as $type => $trans) {
+				$file = $dir . 'cms_' . $type . '.html';
                 
-                if (file_exists($file))
-                {
-                    $cms = new CMS();
+				if (file_exists($file)) {
+					$cms = new CMS();
                    
-                    foreach ($languages as $language)
-                    {
-                        $id_lang = $language['id_lang'];
-                        $is_de = ($language['iso_code'] == 'de') ? true : false;
-                        
-                        $cms->meta_title[$id_lang]       = ($is_de) ? $trans['meta_title'] : $trans['name'];
-                        $cms->meta_description[$id_lang] = ($is_de) ? $trans['meta_description'] : $trans['name'];
-                        $cms->meta_keywords[$id_lang]    = ($is_de) ? $trans['meta_keywords']    : $trans['name'];
-                        $cms->link_rewrite[$id_lang]     = ($is_de) ? $trans['link_rewrite']     : $type;
-                        $cms->content[$id_lang]          = ($is_de) ? file_get_contents($file) : '';
-                        
-                    }
+					foreach ($languages as $language) {
+						$id_lang = $language['id_lang'];
+						$is_de = ($language['iso_code'] == 'de') ? true : false;
+						
+						$cms->meta_title[$id_lang]       = ($is_de) ? $trans['meta_title'] : $trans['name'];
+						$cms->meta_description[$id_lang] = ($is_de) ? $trans['meta_description'] : $trans['name'];
+						$cms->meta_keywords[$id_lang]    = ($is_de) ? $trans['meta_keywords']    : $trans['name'];
+						$cms->link_rewrite[$id_lang]     = ($is_de) ? $trans['link_rewrite']     : $type;
+						$cms->content[$id_lang]          = ($is_de) ? file_get_contents($file) : '';
+                    			}
 					
 					$cms->active = 1;
-                    $cms->id_cms_category = 1;
+					$cms->id_cms_category = 1;
                     
-                    if ($cms->add())
-                    {
-                        Configuration::updateValue($trans['cms_id'], $cms->id);
-                    }
-                    else
-                    {
-                        $this->_errors[] = $this->l('Could not add a CMS page:') . ' "' . $trans['name'] . '"';
+					if ($cms->add()) {
+						Configuration::updateValue($trans['cms_id'], $cms->id);
+					}
+					else {
+						$this->_errors[] = $this->l('Could not add a CMS page:') . ' "' . $trans['name'] . '"';
                         
-                        return false;
-                    }
-                }
-            }
+						return false;
+					}
+				}
+			}
             
-            return true;
-        }
+			return true;
+		}
         
-        $this->_errors[] = $this->l('Unable to locate CMS pages to install');
+		$this->_errors[] = $this->l('Unable to locate CMS pages to install');
         
-        return false;
-    }
+		return false;
+	}
     
     
-    /*
-     * Updates country names translation for German language.
-     *
-     * @access private
-     *
-     * @return void
-     */
-    private function updateCountries()
-    {
-        // This is where the array with cms data is stored to keep this file
-        // clean.
-        require_once(GN_INSTALL_PATH . 'countries.inc.php');
+	/*
+	* Updates country names translation for German language.
+	*
+	* @access private
+	*
+	* @return void
+	*/
+	private function updateCountries()
+	{
+		// This is where the array with cms data is stored to keep this file
+		// clean.
+		require_once(GN_INSTALL_PATH . 'countries.inc.php');
         
-        if (sizeof($_gn_countries))
-        {
-            $id_lang_src  = Language::getIdByIso('en');
-            $id_lang_dest = Language::getIdByIso('de');
+		if (sizeof($_gn_countries)) {
+			$id_lang_src  = Language::getIdByIso('en');
+			$id_lang_dest = Language::getIdByIso('de');
 			
 			$countries = Db::getInstance()->ExecuteS('
 				SELECT
@@ -282,12 +260,9 @@ class Germanext extends Module
 					`id_lang` = ' . (int)$id_lang_src
 			);
 			
-			if ($countries && sizeof($countries))
-			{
-				foreach ($countries as $country)
-				{
-					if (array_key_exists($country['name'], $_gn_countries))
-					{
+			if ($countries && sizeof($countries)) {
+				foreach ($countries as $country) {
+					if (array_key_exists($country['name'], $_gn_countries)) {
 						Db::getInstance()->Execute('
 							UPDATE
 								`' . _DB_PREFIX_ . 'country_lang`
@@ -298,137 +273,130 @@ class Germanext extends Module
 					}
 				}
 			}
-        }
-    }
+		}
+	}
     
     
-    /*
-     * Disables all zones except Europe and all countries except Germany. This
-     * is a germanext requirement.
-     *
-     * @access private
-     *
-     * @return void
-     */
-    private function setCountryZone()
-    {
-        Db::getInstance()->Execute('UPDATE `' . _DB_PREFIX_ . 'zone` SET `active` = 1 WHERE `name` = "Europe"');
-        
-        Db::getInstance()->Execute('UPDATE `' . _DB_PREFIX_ . 'zone` SET `active` = 0 WHERE `name` <> "Europe"');
-        
-        Db::getInstance()->Execute('UPDATE `' . _DB_PREFIX_ . 'country` SET `active` = 1 WHERE `iso_code` = "DE"');
-        
-        Db::getInstance()->Execute('UPDATE `' . _DB_PREFIX_ . 'country` SET `active` = 0 WHERE `iso_code` <> "DE"'); 
-    }
+	/*
+	* Disables all zones except Europe and all countries except Germany. This
+	* is a germanext requirement.
+	*
+	* @access private
+	*
+	* @return void
+	*/
+	private function setCountryZone()
+	{
+		Db::getInstance()->Execute('UPDATE `' . _DB_PREFIX_ . 'zone` SET `active` = 1 WHERE `name` = "Europe"');
+		
+		Db::getInstance()->Execute('UPDATE `' . _DB_PREFIX_ . 'zone` SET `active` = 0 WHERE `name` <> "Europe"');
+		
+		Db::getInstance()->Execute('UPDATE `' . _DB_PREFIX_ . 'country` SET `active` = 1 WHERE `iso_code` = "DE"');
+		
+		Db::getInstance()->Execute('UPDATE `' . _DB_PREFIX_ . 'country` SET `active` = 0 WHERE `iso_code` <> "DE"'); 
+	}
     
     
-    /*
-     * Updates or adds prestashop's default order states for use with Germanext.
-     *
-     * @access private
-     *
-     * @return void
-     */
-    private function updateOrderStates()
-    {
-        $id_lang = Language::getIdByIso('de');
+	/*
+	* Updates or adds prestashop's default order states for use with Germanext.
+	*
+	* @access private
+	*
+	* @return void
+	*/
+	private function updateOrderStates()
+	{
+		$id_lang = Language::getIdByIso('de');
         
-        if ( ! $id_lang || ! Validate::isUnsignedId($id_lang))
-        {
-            $this->_errors[] = $this->l('Germanext requires German language to be installed');
+		if ( ! $id_lang || ! Validate::isUnsignedId($id_lang)) {
+			$this->_errors[] = $this->l('Germanext requires German language to be installed');
             
-            return false;
-        }
+			return false;
+		}
         
-        $orderStates = array(
-            array(
-                10, 'Information zu Ihrer Bestellung', 'bankwire'
-            )
-        );
+		$orderStates = array(
+			array(
+				10, 'Information zu Ihrer Bestellung', 'bankwire'
+			)
+		);
        
-        foreach ($orderStates as $key => $stateData)
-        {
-            $id       = $stateData[0];
-            $name     = $stateData[1];
-            $template = $stateData[2];
+		foreach ($orderStates as $key => $stateData) {
+			$id       = $stateData[0];
+			$name     = $stateData[1];
+			$template = $stateData[2];
             
-            if (Db::getInstance()->ExecuteS('SELECT 1 FROM `' . _DB_PREFIX_ . 'order_state_lang` WHERE `id_order_state` = ' . (int)$id . ' AND `id_lang` = ' . (int)$id_lang))
-            {
-                $query = '
-                UPDATE
-                    `' . _DB_PREFIX_ . 'order_state_lang`
-                SET
-                    `name`     = "' . pSQL($name) . '",
-                    `template` = "' . pSQL($template) . '"
-                WHERE
-                    `id_order_state` = ' . (int)$id . '
-                    AND
-                    `id_lang` = ' . (int)$id_lang . '
-                LIMIT 1';
-            }
-            else
-            {
-                $query = '
-                INSERT INTO
-                    `' . _DB_PREFIX_ . 'order_state_lang` (
-                        `id_order_state`,
-                        `id_lang`,
-                        `name`,
-                        `template`
-                    ) VALUES (
-                        ' . (int)$id . ',
-                        ' . (int)$id_lang . ',
-                        "' . pSQL($name) . '",
-                        "' . pSQL($template) . '"
-                    )';
-            }
+			if (Db::getInstance()->ExecuteS('SELECT 1 FROM `' . _DB_PREFIX_ . 'order_state_lang` WHERE `id_order_state` = ' . (int)$id . ' AND `id_lang` = ' . (int)$id_lang)) {
+				$query = '
+				UPDATE
+					`' . _DB_PREFIX_ . 'order_state_lang`
+				SET
+					`name`     = "' . pSQL($name) . '",
+					`template` = "' . pSQL($template) . '"
+				WHERE
+					`id_order_state` = ' . (int)$id . '
+					AND
+					`id_lang` = ' . (int)$id_lang . '
+				LIMIT 1';
+			}
+			else {
+				$query = '
+				INSERT INTO
+					`' . _DB_PREFIX_ . 'order_state_lang` (
+						`id_order_state`,
+						`id_lang`,
+						`name`,
+						`template`
+					) VALUES (
+						' . (int)$id . ',
+						' . (int)$id_lang . ',
+						"' . pSQL($name) . '",
+						"' . pSQL($template) . '"
+					)';
+			}
             
-            Db::getInstance()->Execute($query);
-        }
+			Db::getInstance()->Execute($query);
+		}
 
-        $orderStates = array();
-        $orderStates[] = array(1, 'Warten aus Bestätigung');
-        $orderStates[] = array(2, 'Warten auf Rücksendung');
-        $orderStates[] = array(3, 'Sendung erhalten');
-        $orderStates[] = array(4, 'Rücknahme abgelehnt');
-        $orderStates[] = array(5, 'Rücknahme abgeschlossen');
+		$orderStates = array();
+		$orderStates[] = array(1, 'Warten aus Bestätigung');
+		$orderStates[] = array(2, 'Warten auf Rücksendung');
+		$orderStates[] = array(3, 'Sendung erhalten');
+		$orderStates[] = array(4, 'Rücknahme abgelehnt');
+		$orderStates[] = array(5, 'Rücknahme abgeschlossen');
        
-        foreach ($orderStates as $key => $data)
-        {
-            $id = $data[0];
-            $name = $data[1];
+		foreach ($orderStates as $key => $data) {
+			$id = $data[0];
+			$name = $data[1];
            
-            if ( Db::getInstance()->ExecuteS('SELECT 1 FROM `' . _DB_PREFIX_ . 'order_return_state_lang` WHERE `id_order_return_state` = ' . (int)$id . ' AND `id_lang` = ' . (int)$id_lang))
-            {
-                $query = '
-                    UPDATE
-                        `' . _DB_PREFIX_ . 'order_return_state_lang`
-                    SET
-                        `name` = "' . pSQL($name) . '"
-                    WHERE
-                        `id_order_return_state` = ' . (int)$id . '
-                    AND
-                        `id_lang` = ' . (int)$id_lang . '
-                    LIMIT 1';
-            }
-            else
-            {
-                $query = '
-                    INSERT INTO
-                        `' . _DB_PREFIX_ . 'order_return_state_lang` (
-                            `id_order_return_state`,
-                            `id_lang`,
-                            `name`
-                        ) VALUES (
-                            ' . (int)$id . ',
-                            ' . (int)$id_lang . ',
-                            "' . pSQL($name) . '"
-                        )';
-            }
+			if ( Db::getInstance()->ExecuteS('SELECT 1 FROM `' . _DB_PREFIX_ . 'order_return_state_lang` WHERE `id_order_return_state` = ' . (int)$id . ' AND `id_lang` = ' . (int)$id_lang)) {
+				$query = '
+				    UPDATE
+				        `' . _DB_PREFIX_ . 'order_return_state_lang`
+				    SET
+				        `name` = "' . pSQL($name) . '"
+				    WHERE
+				        `id_order_return_state` = ' . (int)$id . '
+				    AND
+				        `id_lang` = ' . (int)$id_lang . '
+				    LIMIT 1';
+			}
+			else {
+				$query = '
+				INSERT INTO
+				`' . _DB_PREFIX_ . 'order_return_state_lang` (
+				    `id_order_return_state`,
+				    `id_lang`,
+				    `name`
+				) VALUES (
+				    ' . (int)$id . ',
+				    ' . (int)$id_lang . ',
+				    "' . pSQL($name) . '"
+				)';
+			}
             
-            Db::getInstance()->Execute($query);
-        }
-    }
+			Db::getInstance()->Execute($query);
+		}
+	}
     
     
     /*
@@ -847,17 +815,6 @@ class Germanext extends Module
     public function hookDisplayBackOfficeHeader($params)
     {
         $context = Context::getContext();
-		
-		if (Tools::getIsset('dbg'))
-		{
-			var_dump(Db::getInstance()->Execute('
-				ALTER TABLE
-					`ps_product_attribute_shop`
-				ADD
-					`unit_net_impact` DECIMAL( 17, 2 ) NOT NULL DEFAULT  \'0.00\'
-				AFTER  `unit_price_impact`')
-			);
-		}
         
         if (is_object($context))
         {
