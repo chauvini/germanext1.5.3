@@ -1,14 +1,11 @@
 <?php
 class AuthControllerListener extends Germanext
 {
-	public function __construct()
-	{
-		
-	}
+	public function __construct(){}
 	
-    public function execute($context)
-    {
-        $regText = Configuration::get('GN_REGISTRATION_TEXT', (int)$context->cookie->id_lang);
+	public function execute($context)
+	{
+		$regText = Configuration::get('GN_REGISTRATION_TEXT', (int)$context->cookie->id_lang);
 		$regText = ($regText && ! Tools::isEmpty(trim($regText))) ? trim($regText) : false;
 		
 		$context->smarty->assign(array(
@@ -21,6 +18,5 @@ class AuthControllerListener extends Germanext
 		));
 		
 		$context->controller->addJs($this->_path . 'js/authentication.js');
-    }
+	}
 }
-?>
