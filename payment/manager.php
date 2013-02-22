@@ -49,7 +49,7 @@ abstract class GN_PaymentManager
 		));
         
 		if ($this->_defaultTpl) {
-			return $smarty->fetch(dirname(__FILE__) . '/default.tpl');
+			return $context->smarty->fetch(dirname(__FILE__) . '/default.tpl');
 		}
 	}
    
