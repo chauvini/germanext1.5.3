@@ -86,7 +86,8 @@ class PaymentCostCore extends ObjectModel
 		$sql->leftJoin('module_group', 'mg', 'mg.`id_module` = m.`id_module`');
 		$sql->where('mg.`id_group` IN ('.implode(', ', $groups).')');
 		$sql->orderBy('hm.`position`, m.`name`');
-      		return Db::getInstance()->ExecuteS($query);
+		
+      		return Db::getInstance()->ExecuteS($sql);
       	}
    
 	public function getPriceImpact($price)
