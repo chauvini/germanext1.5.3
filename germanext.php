@@ -37,7 +37,8 @@ class Germanext extends Module
 		'OrderController',
 		'HistoryController',
 		'OrderDetailController',
-		'CompareController'
+		'CompareController',
+		'ContactController'
 	);
     
 	private static $_themeTplOverrides = array(
