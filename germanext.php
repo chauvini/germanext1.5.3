@@ -737,6 +737,7 @@ class Germanext extends Module
 		if (is_object($context)) {
 			$context->controller->addCSS($this->_path . 'css/style.css', 'all');
 			$context->smarty->assign('germanext_tpl', GN_THEME_PATH);
+			$context->smarty->assign('germanext_tpl_mobile', GN_THEME_PATH . 'mobile/');
 			$context->smarty->assign($gn_configs);
 			// Check if we have a listener for this controller
 			$contoller_class = get_class($context->controller);
@@ -1587,10 +1588,14 @@ class Germanext extends Module
 	*/
 	public static function getThemeTemplate($template_name)
 	{
+		$is_mobile      = Context::getContext()->getMobileDevice();
+		$gn_path        = GN_THEME_PATH . ($is_mobile ? 'mobile/' : '');
+		$gn_smarty_path = 'germanext_tpl' . ($is_mobile ? '_mobile' : '');
+
 		if (is_array(self::$_themeTplOverrides)) {
 			foreach (self::$_themeTplOverrides as $template) {
-				if (stristr($template_name, $template) && file_exists(GN_THEME_PATH . $template)) {
-					$template_name = '($_smarty_tpl->tpl_vars[\'germanext_tpl\']->value)."./' . $template . '"';
+				if (stristr($template_name, $template) && file_exists($gn_path . $template)) {
+					$template_name = '($_smarty_tpl->tpl_vars[\'' . $gn_smarty_path . '\']->value)."./' . $template . '"';
 				}
 			}
 		}
