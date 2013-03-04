@@ -53,6 +53,7 @@ var stock_management = {$stock_management|intval};
 
 var productPriceWithoutReduction = '{$productPriceWithoutReduction}';
 var productPrice = '{$productPrice}';
+var productWeight = {$product->weight};
 
 // Customizable field
 var img_ps_dir = '{$img_ps_dir}';
@@ -100,7 +101,7 @@ var fieldRequired = '{l s='Please fill in all required fields, then save the cus
 		specific_price_combination['reduction_price'] = {if $combination.specific_price AND $combination.specific_price.reduction AND $combination.specific_price.reduction_type == 'amount'}{$combination.specific_price.reduction}{else}0{/if};
 		specific_price_combination['price'] = {if $combination.specific_price AND $combination.specific_price.price}{$combination.specific_price.price}{else}0{/if};
 		specific_price_combination['reduction_type'] = '{if $combination.specific_price}{$combination.specific_price.reduction_type}{/if}';
-		addCombination({$idCombination|intval}, new Array({$combination.list}), {$combination.quantity}, {$combination.unit_net}, {$combination.price}, {$combination.ecotax}, {$combination.id_image}, '{$combination.reference|addslashes}', {$combination.unit_impact}, {$combination.net_impact}, {$combination.minimal_quantity}, '{$combination.available_date}', specific_price_combination);
+		addCombination({$idCombination|intval}, new Array({$combination.list}), {$combination.quantity}, {$combination.unit_net}, {$combination.price}, {$combination.ecotax}, {$combination.id_image}, '{$combination.reference|addslashes}', {$combination.unit_impact}, {$combination.net_impact}, {$combination.minimal_quantity}, '{$combination.available_date}', specific_price_combination, {$combination.weight});
 	{/foreach}
 {/if}
 
