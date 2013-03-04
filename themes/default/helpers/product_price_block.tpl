@@ -105,7 +105,7 @@
 		{/if}
 		
 		{if isset($product->weight) && $product->weight > 0 && Configuration::get('PS_SHIPPING_METHOD')}
-		<div span="gn_adds gn_weight"> {l s='Shipping weight:' mod='germanext'} {str_replace('.', ',', (string)((float)($product->weight)))} {Configuration::get('PS_WEIGHT_UNIT')}</div>
+			<div span="gn_adds gn_weight"> {l s='Shipping weight:' mod='germanext'} <span class="shipping_weight">{str_replace('.', ',', (string)((float)($product->weight)))}</span> {Configuration::get('PS_WEIGHT_UNIT')}</div>
 		{/if}
 		
 		<!-- EOF shipping cost CMS link -->
