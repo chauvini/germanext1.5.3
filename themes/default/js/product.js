@@ -50,7 +50,7 @@ function oosHookJsCode()
 }
 
 //add a combination of attributes in the global JS sytem
-function addCombination(idCombination, arrayOfIdAttributes, quantity, unit_net, price, ecotax, id_image, reference, unit_price, net_impact, minimal_quantity, available_date, combination_specific_price)
+function addCombination(idCombination, arrayOfIdAttributes, quantity, unit_net, price, ecotax, id_image, reference, unit_price, net_impact, minimal_quantity, available_date, combination_specific_price, weight)
 {
 	globalQuantity += quantity;
 
@@ -69,6 +69,7 @@ function addCombination(idCombination, arrayOfIdAttributes, quantity, unit_net, 
 	combination['specific_price'] = new Array();
 	combination['specific_price'] = combination_specific_price;
 	combination['unit_net'] = unit_net;
+	combination['weight'] = weight;
 	combinations.push(combination);
 }
 
@@ -117,6 +118,7 @@ function findCombination(firstTime)
 			selectedCombination['net_impact'] = combinations[combination]['net_impact'];
 			selectedCombination['specific_price'] = combinations[combination]['specific_price'];
 			selectedCombination['unit_net'] = combinations[combination]['unit_net'];
+			selectedCombination['weight'] = combinations[combination]['weight'];
 			if (combinations[combination]['ecotax'])
 				selectedCombination['ecotax'] = combinations[combination]['ecotax'];
 			else
@@ -418,6 +420,12 @@ function updateDisplay()
 		// Ecotax
 		var ecotaxAmount = !displayPrice ? ps_round(selectedCombination['ecotax'] * (1 + ecotaxTax_rate / 100), 2) : selectedCombination['ecotax'];
 		$('#ecotax_price_display').text(formatCurrency(ecotaxAmount, currencyFormat, currencySign, currencyBlank));
+	
+		var shipping_weight = parseFloat(selectedCombination['weight']);
+
+		if ( ! isNaN(shipping_weight)) {
+			$('span.shipping_weight').html(ps_round(productWeight + shipping_weight, 2).toString().replace('.', ','));
+		}
 	}
 }
 
