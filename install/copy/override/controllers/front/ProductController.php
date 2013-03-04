@@ -1,47 +1,43 @@
 <?php
 class ProductController extends ProductControllerCore
 {
-    public function initContent()
-    {
-        parent::initContent();
+	public function initContent() {
+		parent::initContent();
 
 		$avNowOrig   = trim($this->product->available_now);
 		$avLaterOrig = trim($this->product->available_later);
 		$id_lang     = (int)$this->context->cookie->id_lang;
 		
-		if ($avNowOrig == '')
-		{
+		if ($avNowOrig == '') {
 			$this->product->available_now = Configuration::get('GN_AVAILABLE_NOW', $id_lang);
 		}
 		
-		if ($avLaterOrig == '')
-		{
+		if ($avLaterOrig == '') {
 			$this->product->available_later = Configuration::get('GN_AVAILABLE_LATER', $id_lang);
 		}
-    }
+	}
 	
-	protected function assignAttributesGroups()
-	{
+	protected function assignAttributesGroups() {
 		$colors = array();
 		$groups = array();
 
 		// @todo (RM) should only get groups and not all declination ?
 		$attributes_groups = $this->product->getAttributesGroups($this->context->language->id);
-		if (is_array($attributes_groups) && $attributes_groups)
-		{
+		
+		if (is_array($attributes_groups) && $attributes_groups) {
 			$combination_images = $this->product->getCombinationImages($this->context->language->id);
 			$combination_prices_set = array();
-			foreach ($attributes_groups as $k => $row)
-			{
+			
+			foreach ($attributes_groups as $k => $row) {
 				// Color management
-				if ((isset($row['attribute_color']) && $row['attribute_color']) || (file_exists(_PS_COL_IMG_DIR_.$row['id_attribute'].'.jpg')))
-				{
+				if ((isset($row['attribute_color']) && $row['attribute_color']) || (file_exists(_PS_COL_IMG_DIR_.$row['id_attribute'].'.jpg'))) {
 					$colors[$row['id_attribute']]['value'] = $row['attribute_color'];
 					$colors[$row['id_attribute']]['name'] = $row['attribute_name'];
 					if (!isset($colors[$row['id_attribute']]['attributes_quantity']))
 						$colors[$row['id_attribute']]['attributes_quantity'] = 0;
 					$colors[$row['id_attribute']]['attributes_quantity'] += (int)$row['quantity'];
 				}
+				
 				if (!isset($groups[$row['id_attribute_group']]))
 					$groups[$row['id_attribute_group']] = array(
 						'name' => $row['public_group_name'],
