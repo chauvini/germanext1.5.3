@@ -38,11 +38,11 @@
 				<table style="width: 100%">
 					<tr>
 						<td style="width: 50%">
-							<span style="font-weight: bold; font-size: 10pt; color: #9E9F9E">{l s='Delivery Address' pdf='true'}</span><br />
+							<span style="font-weight: bold; font-size: 10pt; color: #9E9F9E">{l s='Delivery Address' mod='germanext' pdf='true'}</span><br />
 							 {$delivery_address}
 						</td>
 						<td style="width: 50%">
-							<span style="font-weight: bold; font-size: 10pt; color: #9E9F9E">{l s='Billing Address' pdf='true'}</span><br />
+							<span style="font-weight: bold; font-size: 10pt; color: #9E9F9E">{l s='Billing Address' mod='germanext' pdf='true'}</span><br />
 							 {$invoice_address}
 						</td>
 					</tr>
