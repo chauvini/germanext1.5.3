@@ -46,6 +46,8 @@ class Germanext extends Module
 		'order-steps.tpl',
 		'shopping-cart-product-line.tpl'
 	);
+	
+	private static $_pdfTranslations = array();
     
 	public function __construct()
 	{
@@ -1843,5 +1845,32 @@ class Germanext extends Module
 
 			$params['templatePath'] = $path;
 		}
+	}
+	
+	public function getPdfTranslation($string) {
+		if ( ! sizeof(self::$_pdfTranslations)) {
+			self::$_pdfTranslations = array(
+				'Company' => $this->l('Company'),
+				'Address' => $this->l('Address'),
+				'Post/Zip code' => $this->l('Post/Zip code'),
+				'City' => $this->l('City'),
+				'State' => $this->l('State'),
+				'Country' => $this->l('Country'),
+				'Phone' => $this->l('Phone'),
+				'Fax' => $this->l('Fax'),
+				'Email' => $this->l('Email'),
+				'Authorised representative' => $this->l('Authorised representative'),
+				'Register court' => $this->l('Register court'),
+				'Register number' => $this->l('Register number'),
+				'Sales tax ID number' => $this->l('Sales tax ID number'),
+				'Bank name' => $this->l('Bank name'),
+				'Account number' => $this->l('Account number'),
+				'Bank identifier code' => $this->l('Bank identifier code'),
+				'IBAN' => $this->l('IBAN'),
+				'SWIFT' => $this->l('SWIFT')
+			);
+		}
+		
+		return array_key_exists($string, self::$_pdfTranslations) ? self::$_pdfTranslations[$string] : $string;
 	}
 }
