@@ -42,7 +42,7 @@
 							 {$delivery_address}
 						</td>
 						<td style="width: 50%">
-							<span style="font-weight: bold; font-size: 10pt; color: #9E9F9E">{l s='Billing Address'mod='germanext'}</span><br />
+							<span style="font-weight: bold; font-size: 10pt; color: #9E9F9E">{l s='Billing Address' mod='germanext'}</span><br />
 							 {$invoice_address}
 						</td>
 					</tr>
