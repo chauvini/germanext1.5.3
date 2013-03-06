@@ -19,28 +19,29 @@ abstract class HTMLTemplate extends HTMLTemplateCore
 	
 	public function getFooter()
 	{
+		$gn_instance = Module::getInstanceByName('germanext');
 		$shop_address = $this->getShopAddress();
 		
 		$gn_address_rows = array();
 		$gn_address_row_names = array(
-			'PS_SHOP_COMPANY' => self::l('Company'),
-			'PS_SHOP_ADDR1|PS_SHOP_ADDR2' => self::l('Address'),
-			'PS_SHOP_CODE' => self::l('Post/Zip code'),
-			'PS_SHOP_CITY' => self::l('City'),
-			'PS_SHOP_STATE' => self::l('State'),
-			'PS_SHOP_COUNTRY' => self::l('Country'),
-			'PS_SHOP_PHONE' => self::l('Phone'),
-			'PS_SHOP_FAX' => self::l('Fax'),
-			'PS_SHOP_EMAIL' => self::l('Email'),
-			'PS_SHOP_REPRESENTER' => self::l('Authorised representative'),
-			'PS_SHOP_REGISTER_COURT' => self::l('Register court'),
-			'PS_SHOP_REGISTER_NUM' => self::l('Register number'),
-			'PS_SHOP_SALES_TAX_ID' => self::l('Sales tax ID number'),
-			'PS_SHOP_BANK_NAME' => self::l('Bank name'),
-			'PS_SHOP_BANK_ACCOUNT' => self::l('Account number'),
-			'PS_SHOP_BANK_CODE' => self::l('Bank identifier code'),
-			'PS_SHOP_BANK_IBAN' => self::l('IBAN'),
-			'PS_SHOP_BANK_SWIFT' => self::l('SWIFT'),
+			'PS_SHOP_COMPANY' => $gn_instance->getPdfTranslation('Company'),
+			'PS_SHOP_ADDR1|PS_SHOP_ADDR2' => $gn_instance->getPdfTranslation('Address'),
+			'PS_SHOP_CODE' => $gn_instance->getPdfTranslation('Post/Zip code'),
+			'PS_SHOP_CITY' => $gn_instance->getPdfTranslation('City'),
+			'PS_SHOP_STATE' => $gn_instance->getPdfTranslation('State'),
+			'PS_SHOP_COUNTRY' => $gn_instance->getPdfTranslation('Country'),
+			'PS_SHOP_PHONE' => $gn_instance->getPdfTranslation('Phone'),
+			'PS_SHOP_FAX' => $gn_instance->getPdfTranslation('Fax'),
+			'PS_SHOP_EMAIL' => $gn_instance->getPdfTranslation('Email'),
+			'PS_SHOP_REPRESENTER' => $gn_instance->getPdfTranslation('Authorised representative'),
+			'PS_SHOP_REGISTER_COURT' => $gn_instance->getPdfTranslation('Register court'),
+			'PS_SHOP_REGISTER_NUM' => $gn_instance->getPdfTranslation('Register number'),
+			'PS_SHOP_SALES_TAX_ID' => $gn_instance->getPdfTranslation('Sales tax ID number'),
+			'PS_SHOP_BANK_NAME' => $gn_instance->getPdfTranslation('Bank name'),
+			'PS_SHOP_BANK_ACCOUNT' => $gn_instance->getPdfTranslation('Account number'),
+			'PS_SHOP_BANK_CODE' => $gn_instance->getPdfTranslation('Bank identifier code'),
+			'PS_SHOP_BANK_IBAN' => $gn_instance->getPdfTranslation('IBAN'),
+			'PS_SHOP_BANK_SWIFT' => $gn_instance->getPdfTranslation('SWIFT'),
 		);
 		
 		foreach ($gn_address_row_names as $config_var => $name)
