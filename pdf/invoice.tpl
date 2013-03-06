@@ -38,11 +38,11 @@
 				<table style="width: 100%">
 					<tr>
 						<td style="width: 50%">
-							<span style="font-weight: bold; font-size: 10pt; color: #9E9F9E">{l s='Delivery Address' mod='germanext' pdf='true'}</span><br />
+							<span style="font-weight: bold; font-size: 10pt; color: #9E9F9E">{l s='Delivery Address' mod='germanext'}</span><br />
 							 {$delivery_address}
 						</td>
 						<td style="width: 50%">
-							<span style="font-weight: bold; font-size: 10pt; color: #9E9F9E">{l s='Billing Address' mod='germanext' pdf='true'}</span><br />
+							<span style="font-weight: bold; font-size: 10pt; color: #9E9F9E">{l s='Billing Address'mod='germanext'}</span><br />
 							 {$invoice_address}
 						</td>
 					</tr>
@@ -52,7 +52,7 @@
 					<tr>
 
 						<td style="width: 50%">
-							<span style="font-weight: bold; font-size: 10pt; color: #9E9F9E">{l s='Billing & Delivery Address.' pdf='true'}</span><br />
+							<span style="font-weight: bold; font-size: 10pt; color: #9E9F9E">{l s='Billing & Delivery Address.' mod='germanext'}</span><br />
 							 {$invoice_address}
 						</td>
 						<td style="width: 50%">
@@ -73,13 +73,13 @@
 	<tr>
 		<td style="width: 15%; padding-right: 7px; text-align: right; vertical-align: top; font-size: 7pt;">
 			<!-- CUSTOMER INFORMATION -->
-			<b>{l s='Order Number:' pdf='true'}</b><br />
+			<b>{l s='Order Number:' mod='germanext'}</b><br />
 			{$order->getUniqReference()}<br />
 			<br />
-			<b>{l s='Order Date:' pdf='true'}</b><br />
+			<b>{l s='Order Date:' mod='germanext'}</b><br />
 			{$order->date_add|date_format:"%d.%m.%Y %H:%M"}<br />
 			<br />
-			<b>{l s='Payment Method:' pdf='true'}</b><br />
+			<b>{l s='Payment Method:' mod='germanext'}</b><br />
 			<table style="width: 100%;">
 			{foreach from=$order_invoice->getOrderPaymentCollection() item=payment}
 				<tr>
@@ -97,7 +97,7 @@
 				</tr>
 			{foreachelse}
 				<tr>
-					<td>{l s='No payment' pdf='true'}</td>
+					<td>{l s='No payment' mod='germanext'}</td>
 				</tr>
 			{/foreach}
 			</table>
@@ -107,27 +107,27 @@
 		<td style="width: 85%; text-align: right">
 			<table style="width: 100%; font-size: 8pt;">
 				<tr style="line-height:4px;">
-					<td style="text-align: left; background-color: #4D4D4D; color: #FFF; padding-left: 10px; font-weight: bold; width: 35%">{l s='Product / Reference' pdf='true'}</td>
+					<td style="text-align: left; background-color: #4D4D4D; color: #FFF; padding-left: 10px; font-weight: bold; width: 35%">{l s='Product / Reference' mod='germanext'}</td>
 					<!-- unit price tax excluded is mandatory -->
 					{if !$tax_excluded_display}
-						<td style="background-color: #4D4D4D; color: #FFF; text-align: right; font-weight: bold;; width: 15%">{l s='Unit Price' pdf='true'} <br />{l s='(Tax Excl.)' pdf='true'}</td>
+						<td style="background-color: #4D4D4D; color: #FFF; text-align: right; font-weight: bold;; width: 15%">{l s='Unit Price' mod='germanext'} <br />{l s='(Tax Excl.)' mod='germanext'}</td>
 					{/if}
 					<td style="background-color: #4D4D4D; color: #FFF; text-align: right; font-weight: bold;; width: 15%">
-						{l s='Unit Price' pdf='true'}
+						{l s='Unit Price' mod='germanext'}
 						{if $tax_excluded_display}
-							 {l s='(Tax Excl.)' pdf='true'}
+							 {l s='(Tax Excl.)' mod='germanext'}
 						{else}
-							 {l s='(Tax Incl.)' pdf='true'}
+							 {l s='(Tax Incl.)' mod='germanext'}
 						{/if}
 					</td>
-					<td style="background-color: #4D4D4D; color: #FFF; text-align: right; font-weight: bold;; width: 10%">{l s='Discount' pdf='true'}</td>
-					<td style="background-color: #4D4D4D; color: #FFF; text-align: center; font-weight: bold; width: 10%">{l s='Qty' pdf='true'}</td>
+					<td style="background-color: #4D4D4D; color: #FFF; text-align: right; font-weight: bold;; width: 10%">{l s='Discount' mod='germanext'}</td>
+					<td style="background-color: #4D4D4D; color: #FFF; text-align: center; font-weight: bold; width: 10%">{l s='Qty' mod='germanext'}</td>
 					<td style="background-color: #4D4D4D; color: #FFF; text-align: right; font-weight: bold;; width: 15%">
-						{l s='Total' pdf='true'}
+						{l s='Total' mod='germanext'}
 						{if $tax_excluded_display}
-							{l s='(Tax Excl.)' pdf='true'}
+							{l s='(Tax Excl.)' mod='germanext'}
 						{else}
-							{l s='(Tax Incl.)' pdf='true'}
+							{l s='(Tax Incl.)' mod='germanext'}
 						{/if}
 					</td>
 				</tr>
@@ -212,31 +212,31 @@
 			<table style="width: 100%">
 				{if (($order_invoice->total_paid_tax_incl - $order_invoice->total_paid_tax_excl) > 0)}
 				<tr style="line-height:5px;">
-					<td style="width: 85%; text-align: right; font-weight: bold">{l s='Product Total (Tax Excl.)' pdf='true'}</td>
+					<td style="width: 85%; text-align: right; font-weight: bold">{l s='Product Total (Tax Excl.)' mod='germanext'}</td>
 					<td style="width: 15%; text-align: right;">{displayPrice currency=$order->id_currency price=$order_invoice->total_products}</td>
 				</tr>
 
 				<tr style="line-height:5px;">
-					<td style="width: 85%; text-align: right; font-weight: bold">{l s='Product Total (Tax Incl.)' pdf='true'}</td>
+					<td style="width: 85%; text-align: right; font-weight: bold">{l s='Product Total (Tax Incl.)' mod='germanext'}</td>
 					<td style="width: 15%; text-align: right;">{displayPrice currency=$order->id_currency price=$order_invoice->total_products_wt}</td>
 				</tr>
 				{else}
 				<tr style="line-height:5px;">
-					<td style="width: 85%; text-align: right; font-weight: bold">{l s='Product Total' pdf='true'}</td>
+					<td style="width: 85%; text-align: right; font-weight: bold">{l s='Product Total' mod='germanext'}</td>
 					<td style="width: 15%; text-align: right;">{displayPrice currency=$order->id_currency price=$order_invoice->total_products}</td>
 				</tr>
 				{/if}
 
 				{if $order_invoice->total_discount_tax_incl > 0}
 				<tr style="line-height:5px;">
-					<td style="text-align: right; font-weight: bold">{l s='Total Vouchers' pdf='true'}</td>
+					<td style="text-align: right; font-weight: bold">{l s='Total Vouchers' mod='germanext'}</td>
 					<td style="width: 15%; text-align: right;">-{displayPrice currency=$order->id_currency price=$order_invoice->total_discount_tax_incl}</td>
 				</tr>
 				{/if}
 
 				{if $order_invoice->total_wrapping_tax_incl > 0}
 				<tr style="line-height:5px;">
-					<td style="text-align: right; font-weight: bold">{l s='Wrapping Cost' pdf='true'}</td>
+					<td style="text-align: right; font-weight: bold">{l s='Wrapping Cost' mod='germanext'}</td>
 					<td style="width: 15%; text-align: right;">
 					{if $tax_excluded_display}
 						{displayPrice currency=$order->id_currency price=$order_invoice->total_wrapping_tax_excl}
@@ -277,7 +277,7 @@
 
 				{if $order_invoice->total_shipping_tax_incl > 0}
 				<tr style="line-height:5px;">
-					<td style="text-align: right; font-weight: bold">{l s='Shipping Cost' pdf='true'}</td>
+					<td style="text-align: right; font-weight: bold">{l s='Shipping Cost' mod='germanext'}</td>
 					<td style="width: 15%; text-align: right;">
 						{if $tax_excluded_display}
 							{displayPrice currency=$order->id_currency price=$order_invoice->total_shipping_tax_excl}
@@ -290,19 +290,19 @@
 
 				{if ($order_invoice->total_paid_tax_incl - $order_invoice->total_paid_tax_excl) > 0}
 				<tr style="line-height:5px;">
-					<td style="text-align: right; font-weight: bold">{l s='Total Tax' pdf='true'}</td>
+					<td style="text-align: right; font-weight: bold">{l s='Total Tax' mod='germanext'}</td>
 					<td style="width: 15%; text-align: right;">{displayPrice currency=$order->id_currency price=($order_invoice->total_paid_tax_incl - $order_invoice->total_paid_tax_excl)}</td>
 				</tr>
 				{/if}
 
 				<tr style="line-height:5px;">
-					<td style="text-align: right; font-weight: bold">{l s='Total' pdf='true'}</td>
+					<td style="text-align: right; font-weight: bold">{l s='Total' mod='germanext'}</td>
 					<td style="width: 15%; text-align: right;">{displayPrice currency=$order->id_currency price=$order_invoice->total_paid_tax_incl}</td>
 				</tr>
 
 				{if $order_invoice->getRestPaid() > 0}
 				<tr style="line-height:5px;color:red;">
-					<td style="text-align: right; font-weight: bold">{l s='Remaining Amount Due' pdf='true'}</td>
+					<td style="text-align: right; font-weight: bold">{l s='Remaining Amount Due' mod='germanext'}</td>
 					<td style="width: 15%; text-align: right;">{displayPrice currency=$order->id_currency price=$order_invoice->getRestPaid()}</td>
 				</tr>
 				{/if}
