@@ -711,6 +711,7 @@ class Germanext extends Module
 	public function hookHeader($params)
 	{
 		$context = Context::getContext();
+		$is_mobile = $context->getMobileDevice();
 
 		if ( ! method_exists($context, 'getMobileDevice') || ! $context->getMobileDevice()) {
 			$context->controller->addCSS(_PS_CSS_DIR_.'jquery.fancybox-1.3.4.css', 'screen');
@@ -744,8 +745,8 @@ class Germanext extends Module
 			// Check if we have a listener for this controller
 			$contoller_class = get_class($context->controller);
 			
-			if ( ! Tools::isEmpty($contoller_class) && file_exists(LISTENERS_PATH . $contoller_class . 'Listener.php')) {
-				$class_name = $contoller_class . 'Listener';
+			if ( ! Tools::isEmpty($contoller_class) && file_exists(LISTENERS_PATH . $contoller_class . ($is_mobile ? 'Mobile' : '') . 'Listener.php')) {
+				$class_name = $contoller_class . ($is_mobile ? 'Mobile' : '') . 'Listener';
 				
 				require_once(LISTENERS_PATH . $class_name . '.php');
 				
