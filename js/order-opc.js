@@ -23,6 +23,8 @@
  *  @license    http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
  *  International Registered Trademark & Property of PrestaShop SA
  */
+ 
+ var is_shipping_cart = false;
 
 function updateCarrierList(json)
 {
@@ -395,6 +397,15 @@ function updateNewAccountToAddressBlock()
 }
 
 $(function() {
+	
+    is_shipping_cart = $('input#is_shipping_cart');
+
+    if (is_shipping_cart.length > 0) {
+	is_shipping_cart = parseInt(is_shipping_cart.val()) == 1 ? true : false;
+    } else {
+	is_shipping_cart = false;
+    }
+    
     // GUEST CHECKOUT / NEW ACCOUNT MANAGEMENT
     if ((!isLogged) || (isGuest))
     {
@@ -920,7 +931,7 @@ if (typeof(window.bindInputs) != 'undefined')
 		$('#button_order').live('click', function(evt){
 			evt.preventDefault();
 			
-			if ( ! isLogged) {
+			if ( ! isLogged && ! is_shipping_cart) {
 				alert(notLoggedIn);
 				return false;
 			}
