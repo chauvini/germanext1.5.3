@@ -918,13 +918,16 @@ if (typeof(window.bindInputs) != 'undefined')
 		$('#button_order').live('click', function(evt){
 			evt.preventDefault();
 			
-			evt.preventDefault();
+			if ( ! isLogged) {
+				alert(notLoggedIn);
+				return false;
+			}
             
-            if ($(this).is('.disabled'))
-            {
-                alert(txtTOSIsNotAccepted);
-                return false;
-            }
+			if ($(this).is('.disabled'))
+			{
+				alert(txtTOSIsNotAccepted);
+				return false;
+			}
 
 			var paymentModule = getHrefQueryVar('payment_module', $(this).attr('href'))
 			doRedirect = true;
