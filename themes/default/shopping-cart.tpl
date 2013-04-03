@@ -25,6 +25,7 @@
 *}
 
 {capture name=path}{l s='Your shopping cart' mod='germanext'}{/capture}
+<input type="hidden" id="is_shipping_cart" value="{if isset($ONLY_SHIPPING_CART) && $ONLY_SHIPPING_CART}1{else}0{/if}" />
 {if isset($ONLY_SHIPPING_CART) && $ONLY_SHIPPING_CART}
 {include file="$tpl_dir./breadcrumb.tpl"}
 {/if}
