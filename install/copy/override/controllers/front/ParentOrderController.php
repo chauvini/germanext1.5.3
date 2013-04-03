@@ -6,6 +6,8 @@ class ParentOrderController extends ParentOrderControllerCore
 	
 	public function init()
 	{
+		self::$is_mobile = $this->context->getMobileDevice();
+		
 		if (self::$is_mobile) {
 			return parent::init();
 		}
