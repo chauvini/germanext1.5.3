@@ -1,7 +1,8 @@
 <?php
 class Cart extends CartCore
 {
-    public      $id_payment;
+    public $id_payment;
+    public $recyclable = 0;
     
     const ONLY_PAYMENT = 9;
     
