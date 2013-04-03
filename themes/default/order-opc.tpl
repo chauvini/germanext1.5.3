@@ -68,13 +68,14 @@
 	var errorCarrier = "{$errorCarrier}";
 	var errorTOS = "{$errorTOS}";
 	var checkedCarrier = "{if isset($checked)}{$checked}{else}0{/if}";
-    var PS_PRIVACY = {if isset($PS_PRIVACY)}{$PS_PRIVACY|intval}{else}0{/if};
+	var PS_PRIVACY = {if isset($PS_PRIVACY)}{$PS_PRIVACY|intval}{else}0{/if};
 	var addresses = new Array();
 	var isLogged = {$isLogged|intval};
 	var isGuest = {$isGuest|intval};
 	var isVirtualCart = {$isVirtualCart|intval};
 	var isPaymentStep = {$isPaymentStep|intval};
-    var privacyNotAccepted = "{l s='Please accept the terms of privacy' mod='germanext' js=1}";
+	var privacyNotAccepted = "{l s='Please accept the terms of privacy' mod='germanext' js=1}";
+	var notLoggedIn = "{l s='Please log in/save your personal data first' mod='germanext' js=1}";
 	//]]>
 </script>
 	{if $productNumber}
