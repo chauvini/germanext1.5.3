@@ -97,9 +97,6 @@
 	<a target="_blank" href="{$link->getPageLink('pdf-invoice', true)}?id_order={$order->id|intval}{if $is_guest}&secure_key={$order->secure_key}{/if}">{l s='Download your invoice as a PDF file' mod='germanext'}</a>
 </p>
 {/if}
-{if $order->recyclable && isset($isRecyclable) && $isRecyclable}
-<p><img src="{$img_dir}icon/recyclable.gif" alt="" class="icon" />&nbsp;{l s='You have given permission to receive your order in recycled packaging.' mod='germanext'}</p>
-{/if}
 {if $order->gift}
 	<p><img src="{$img_dir}icon/gift.gif" alt="" class="icon" />&nbsp;{l s='You requested gift-wrapping for your order.' mod='germanext'}</p>
 	<p>{l s='Message:' mod='germanext'} {$order->gift_message|nl2br}</p>
