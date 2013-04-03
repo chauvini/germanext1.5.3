@@ -2,8 +2,14 @@
 
 class ParentOrderController extends ParentOrderControllerCore
 {
+	public static $is_mobile = false;
+	
 	public function init()
 	{
+		if (self::$is_mobile) {
+			return parent::init();
+		}
+		
 		FrontController::init();
 
 		/* Disable some cache related bugs on the cart/order */
