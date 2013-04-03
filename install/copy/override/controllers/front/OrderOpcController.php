@@ -1,8 +1,15 @@
 <?php
 class OrderOpcController extends OrderOpcControllerCore
 {
+	public  static $is_mobile = false;
 	public function init()
 	{
+		self::$is_mobile = $this->context->getMobileDevice();
+		
+		if (self::$is_mobile) {
+			return parent::init();
+		}
+		
 		ParentOrderController::init();
 
 		if ($this->nbProducts)
@@ -399,7 +406,7 @@ class OrderOpcController extends OrderOpcControllerCore
     
 	private function presentPaymentHook() 
 	{
-		if ((int)Configuration::get('GN_CHECK_PAYMENT') != 1)
+		if ((int)Configuration::get('GN_CHECK_PAYMENT') != 1 || self::$is_mobile)
         {
 			return parent::_getPaymentMethods();
         }
