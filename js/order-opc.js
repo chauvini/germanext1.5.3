@@ -646,6 +646,8 @@ $(function() {
             return false;
         });
     }
+    
+    updateCarrierSelectionAndGift();
 
     bindInputs();
 
