@@ -268,10 +268,12 @@ ready(function(){
 						var quantity = data[0]['quantity'];
 						var image = false;
 						var product_att_list = new Array();
-						for(i=0;i<data.length;i++)
+						for(var i in data)
 						{
-							product_att_list.push(data[i]['group_name']+' : '+data[i]['attribute_name']);
-							product_att_list.push(data[i]['id_attribute']);
+							if (typeof(data[i]) == 'object' && data[i] != null) {
+								product_att_list.push(data[i]['group_name']+' : '+data[i]['attribute_name']);
+								product_att_list.push(data[i]['id_attribute']);
+							}
 						}
 	
 						var id_product_attribute = data[0]['id_product_attribute'];
