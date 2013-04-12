@@ -923,7 +923,7 @@ if (typeof(window.bindInputs) != 'undefined')
 				}
 			});
 			
-			$('input[name=payment_module]').live('click', function() {
+			$('input[name=payment_module]').die('click').live('click', function() {
 				updatePaymentModuleFee();
 			});
 		}
